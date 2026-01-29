@@ -14,5 +14,8 @@ app.get('/', (req, res) => {
     message: 'Node API Architecture running'
   });
 });
+const routes = require('./routes');
+app.use('/api', routes);
+
 
 module.exports = app;
