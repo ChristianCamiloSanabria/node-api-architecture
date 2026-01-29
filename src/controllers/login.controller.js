@@ -1,9 +1,19 @@
+const path = require('path');
+
 const getLogin = (req, res) => {
-  res.json({ message: 'GET login' });
+  res.sendFile(
+    path.join(__dirname, '../views/login.html')
+  );
 };
 
 const sendCredentials = (req, res) => {
-  res.json({ message: 'POST login' });
+  const { email, password } = req.body;
+
+  // ⚠️ aquí luego validarías contra DB
+  res.json({
+    message: 'Credenciales recibidas',
+    email,
+  });
 };
 
 module.exports = {

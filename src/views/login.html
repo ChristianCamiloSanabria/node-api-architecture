@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --neon: #00e5ff;
+      --bg-dark: #0b0f1a;
+      --glass: rgba(255, 255, 255, 0.08);
+      --border-glass: rgba(255, 255, 255, 0.2);
+      --text-light: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: radial-gradient(circle at top, #10152b, var(--bg-dark));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-light);
+    }
+
+    .login-container {
+      width: 340px;
+      padding: 2.5rem 2rem;
+      background: var(--glass);
+      border-radius: 16px;
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.15),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      color: var(--neon);
+      text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+    }
+
+    .field {
+      margin-bottom: 1.4rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder {
+      color: #9aa0b3;
+    }
+
+    input:focus {
+      border-color: var(--neon);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #00e5ff, #0077ff);
+      color: #021018;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.9);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-text {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <form class="login-container" method="POST" action="/api/login">
+    <h2>ACCESS</h2>
+
+    <div class="field">
+      <input type="email" name="email" placeholder="Email" required />
+    </div>
+
+    <div class="field">
+      <input type="password" name="password" placeholder="Password" required />
+    </div>
+
+    <button type="submit">INGRESAR</button>
+
+    <div class="footer-text">
+      Secure Node API • v1.0
+    </div>
+  </form>
+</body>
+</html>
